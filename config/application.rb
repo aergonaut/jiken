@@ -29,5 +29,10 @@ module Jiken
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Set ActiveRecord primary key type to UUID by default
+    config.generators do |g|
+      g.orm :active_record, primary_key_type: :uuid
+    end
   end
 end
