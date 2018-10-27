@@ -1,0 +1,8 @@
+query ServicesQuery {
+  services {
+    nodes {
+      name
+      status
+    }
+  }
+}

@@ -7,6 +7,7 @@ import { HttpLink } from 'apollo-link-http';
 import { onError } from 'apollo-link-error';
 import { ApolloLink } from 'apollo-link';
 import { ApolloProvider } from 'react-apollo';
+import { Services } from '../incidents/Services';
 
 const client = new ApolloClient({
   link: ApolloLink.from([
@@ -29,21 +30,7 @@ const client = new ApolloClient({
 
 const App = () => (
   <ApolloProvider client={client}>
-    <div className="container-md px-3">
-      <h2 className="f1-light border-bottom mb-4">Service Status</h2>
-      <div className="Box Box-body mb-3">
-        <div className="d-flex flex-justify-between">
-          <div>Webhooks</div>
-          <div>Operational</div>
-        </div>
-      </div>
-      <div className="Box Box-body Box--danger text-red">
-        <div className="d-flex flex-justify-between">
-          <div>Web UI</div>
-          <div>Impacted</div>
-        </div>
-      </div>
-    </div>
+    <Services />
   </ApolloProvider>
 );
 
