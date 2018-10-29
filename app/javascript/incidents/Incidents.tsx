@@ -1,7 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 import { Query } from 'react-apollo';
-import { formatDistance } from 'date-fns';
-import * as incidentsQuery from './graphql/incidents_query.graphql';
+import formatDistance from 'date-fns/formatDistance';
+import incidentsQuery from './graphql/incidents_query.graphql';
 import { IncidentsQuery } from './graphql/__generated__/IncidentsQuery';
 
 class IncidentsQueryCmpt extends Query<IncidentsQuery, {}> {}

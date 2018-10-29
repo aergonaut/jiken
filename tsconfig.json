@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "esModuleInterop": true,
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "commonjs",
-    "target": "es5",
+    "target": "es6",
     "jsx": "react"
   },
   "exclude": ["node_modules"]
