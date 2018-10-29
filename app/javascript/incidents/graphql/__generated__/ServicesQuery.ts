@@ -9,6 +9,7 @@ import { ServiceStatus } from "./../../../../../__generated__/globalTypes";
 
 export interface ServicesQuery_services_nodes {
   __typename: "Service";
+  id: string;
   name: string;
   status: ServiceStatus;
 }

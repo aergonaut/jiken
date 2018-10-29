@@ -6,4 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-service = Service.create(name: "Webhooks")
+webhooks_service = Service.create(name: "Webhooks")
+ui_service = Service.create(name: "Web UI")
+
+webhook_incident = webhooks_service.incidents.create(
+  title: "Issue with Webhook Delivery"
+)
+webhook_incident.messages.create(
+  body: "We have identified an issue in our upstream service provider that is affecting webhook delivery."
+)

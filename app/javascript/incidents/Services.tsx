@@ -13,10 +13,14 @@ class ServicesQueryCmpt extends Query<ServicesQuery, {}> {}
  */
 function serviceClassNames(status: string): { [key: string]: boolean } {
   return {
+    'mb-3': true,
     Box: true,
     'Box-body': true,
     'Box--danger': status == 'IMPACTED',
     'text-red': status == 'IMPACTED',
+    'text-green': status == 'OPERATIONAL',
+    'border-green': status == 'OPERATIONAL',
+    'bg-green-light': status == 'OPERATIONAL',
   };
 }
 
@@ -27,17 +31,22 @@ const Services = () => (
       if (error) return 'error';
 
       return (
-        <div className="container-md px-3">
-          <h2 className="f1-light border-bottom mb-4">Service Status</h2>
+        <>
+          <div className="Subhead">
+            <h2 className="Subhead-heading">Service Status</h2>
+          </div>
           {data.services.nodes.map((service) => (
-            <div className={classnames(serviceClassNames(status))}>
+            <div
+              key={service.id}
+              className={classnames(serviceClassNames(service.status))}
+            >
               <div className="d-flex flex-justify-between">
                 <div>{service.name}</div>
                 <div>{service.status}</div>
               </div>
             </div>
           ))}
-        </div>
+        </>
       );
     }}
   </ServicesQueryCmpt>

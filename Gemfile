@@ -59,3 +59,5 @@ gem 'graphql'
 gem 'graphiql-rails', group: :development
 
 gem 'haml-rails'
+
+gem 'redcarpet'

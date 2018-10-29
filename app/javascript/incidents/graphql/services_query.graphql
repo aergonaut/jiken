@@ -1,6 +1,7 @@
 query ServicesQuery {
   services {
     nodes {
+      id
       name
       status
     }

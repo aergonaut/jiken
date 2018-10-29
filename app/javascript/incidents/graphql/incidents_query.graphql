@@ -1,0 +1,14 @@
+query IncidentsQuery {
+  incidents {
+    nodes {
+      id
+      title
+      messages(first: 1) {
+        nodes {
+          bodyHTML
+          updatedAt
+        }
+      }
+    }
+  }
+}

@@ -8,6 +8,7 @@ import { onError } from 'apollo-link-error';
 import { ApolloLink } from 'apollo-link';
 import { ApolloProvider } from 'react-apollo';
 import { Services } from '../incidents/Services';
+import { Incidents } from '../incidents/Incidents';
 
 const client = new ApolloClient({
   link: ApolloLink.from([
@@ -30,7 +31,10 @@ const client = new ApolloClient({
 
 const App = () => (
   <ApolloProvider client={client}>
-    <Services />
+    <div className="container-md px-3">
+      <Services />
+      <Incidents />
+    </div>
   </ApolloProvider>
 );
 
