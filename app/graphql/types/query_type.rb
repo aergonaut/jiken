@@ -15,5 +15,13 @@ module Types
     def incidents
       Incident.all
     end
+
+    field :incident, IncidentType, null: true do
+      argument :id, ID, required: true
+    end
+
+    def incident(id:)
+      Incident.find(id)
+    end
   end
 end

@@ -7,8 +7,8 @@ import { HttpLink } from 'apollo-link-http';
 import { onError } from 'apollo-link-error';
 import { ApolloLink } from 'apollo-link';
 import { ApolloProvider } from 'react-apollo';
-import { Services } from '../incidents/Services';
-import { Incidents } from '../incidents/Incidents';
+import Loadable from 'react-loadable';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const client = new ApolloClient({
   link: ApolloLink.from([
@@ -29,12 +29,24 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const HomeRoute = Loadable({
+  loader: () => import('../incidents/Home'),
+  loading: () => <div>Loading...</div>,
+});
+
+const IncidentRoute = Loadable({
+  loader: () => import('../incidents/Incident'),
+  loading: () => <div>Loading...</div>,
+});
+
 const App = () => (
   <ApolloProvider client={client}>
-    <div className="container-md px-3">
-      <Services />
-      <Incidents />
-    </div>
+    <Router>
+      <div>
+        <Route path="/" exact component={HomeRoute} />
+        <Route path="/incidents/:id" component={IncidentRoute} />
+      </div>
+    </Router>
   </ApolloProvider>
 );
 

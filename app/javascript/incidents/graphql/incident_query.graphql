@@ -1,0 +1,6 @@
+query IncidentQuery($id: ID!) {
+  incident(id: $id) {
+    id
+    title
+  }
+}
