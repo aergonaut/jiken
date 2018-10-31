@@ -7,6 +7,9 @@
 
 export interface IncidentsQuery_incidents_nodes_messages_nodes {
   __typename: "Message";
+  /**
+   * The message body rendered into HTML using Markdown
+   */
   bodyHTML: string;
   updatedAt: any;
 }

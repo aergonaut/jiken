@@ -5,6 +5,12 @@
 // START Enums and Input Objects
 //==============================================================
 
+export enum IncidentStatus {
+  MONITORING = "MONITORING",
+  OPEN = "OPEN",
+  RESOLVED = "RESOLVED",
+}
+
 export enum ServiceStatus {
   IMPACTED = "IMPACTED",
   MONITORING = "MONITORING",

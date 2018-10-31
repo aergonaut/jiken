@@ -42,7 +42,7 @@ const IncidentRoute = Loadable({
 const App = () => (
   <ApolloProvider client={client}>
     <Router>
-      <div>
+      <div className="py-4">
         <Route path="/" exact component={HomeRoute} />
         <Route path="/incidents/:id" component={IncidentRoute} />
       </div>

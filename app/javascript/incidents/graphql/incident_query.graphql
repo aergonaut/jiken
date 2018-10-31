@@ -1,6 +1,17 @@
-query IncidentQuery($id: ID!) {
+query IncidentQuery($id: ID!, $cursor: String) {
   incident(id: $id) {
     id
     title
+    status
+    messages(first: 10, after: $cursor) {
+      nodes {
+        bodyHTML
+        updatedAt
+      }
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
+    }
   }
 }

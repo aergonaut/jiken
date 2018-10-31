@@ -1,5 +1,6 @@
 import React from 'react';
 import { Query } from 'react-apollo';
+import { Link } from 'react-router-dom';
 import formatDistance from 'date-fns/formatDistance';
 import incidentsQuery from './graphql/incidents_query.graphql';
 import { IncidentsQuery } from './graphql/__generated__/IncidentsQuery';
@@ -23,9 +24,16 @@ const Incidents = () => (
             <h2 className="Subhead-heading">Incidents</h2>
           </div>
           {data.incidents.nodes.map((incident) => (
-            <div className="Box">
+            <div className="Box" key={incident.id}>
               <div className="Box-header">
-                <h3 className="Box-title">{incident.title}</h3>
+                <h3 className="Box-title">
+                  <Link
+                    to={`/incidents/${incident.id}`}
+                    className="link-gray-dark"
+                  >
+                    {incident.title}
+                  </Link>
+                </h3>
               </div>
               {incident.messages.nodes.map((message) => (
                 <div className="Box-body">
