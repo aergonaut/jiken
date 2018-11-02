@@ -4,8 +4,6 @@ module Types
     field :name, String, null: false
     field :status, ServiceStatusType, null: false
     field :incidents, IncidentType.connection_type, null: false
-    field :incident, IncidentType, null: true do
-      argument :id, ID, required: true
-    end
+    field :incident_reports, [IncidentReportType], null: false
   end
 end

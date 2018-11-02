@@ -7,6 +7,17 @@ import { IncidentStatus } from "./../../../../../__generated__/globalTypes";
 // GraphQL query operation: IncidentQuery
 // ====================================================
 
+export interface IncidentQuery_incident_incidentReports_service {
+  __typename: "Service";
+  name: string;
+}
+
+export interface IncidentQuery_incident_incidentReports {
+  __typename: "IncidentReport";
+  createdAt: any;
+  service: IncidentQuery_incident_incidentReports_service;
+}
+
 export interface IncidentQuery_incident_messages_nodes {
   __typename: "Message";
   /**
@@ -45,6 +56,7 @@ export interface IncidentQuery_incident {
   id: string;
   title: string;
   status: IncidentStatus;
+  incidentReports: IncidentQuery_incident_incidentReports[];
   messages: IncidentQuery_incident_messages;
 }
 

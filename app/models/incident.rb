@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Incident < ApplicationRecord
-  belongs_to :service
+  has_many :incident_reports
+  has_many :services, through: :incident_reports
   has_many :messages
 
   validates :title, presence: true, length: { maximum: 255 }

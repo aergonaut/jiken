@@ -3,6 +3,12 @@ query IncidentQuery($id: ID!, $cursor: String) {
     id
     title
     status
+    incidentReports {
+      createdAt
+      service {
+        name
+      }
+    }
     messages(first: 10, after: $cursor) {
       nodes {
         bodyHTML

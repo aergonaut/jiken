@@ -1,5 +1,6 @@
 class Service < ApplicationRecord
-  has_many :incidents
+  has_many :incident_reports
+  has_many :incidents, through: :incident_reports
 
   validates :name, presence: true, length: { maximum: 255 }
 
